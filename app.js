@@ -497,7 +497,7 @@ async function generatePDF() {
       tableLineWidth: 0.4,
       styles: {
         font: 'times',
-        fontSize: 22,
+        fontSize: 15,
         textColor: [0, 0, 0],
         fillColor: [255, 255, 255],
         lineColor: [0, 0, 0],
@@ -511,7 +511,7 @@ async function generatePDF() {
         fillColor: [0, 0, 0],
         textColor: [255, 255, 255],
         fontStyle: 'bold',
-        fontSize: 24,
+        fontSize: 16,
         halign: 'center',
         minCellHeight: TABLE_HEAD_H,
       },
@@ -519,7 +519,7 @@ async function generatePDF() {
       columnStyles: {
         0: { cellWidth: 15, halign: 'center' },
         1: { cellWidth: 100, fontStyle: 'bold' },
-        2: { cellWidth: 50, halign: 'center', font: 'courier', fontSize: 20 },
+        2: { cellWidth: 50, halign: 'center', font: 'courier', fontSize: 13 },
         3: { cellWidth: 20, halign: 'center' },
         4: { cellWidth: 25, halign: 'center' },
         5: { cellWidth: 'auto' },
