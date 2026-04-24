@@ -196,13 +196,8 @@ function goToStep(n) {
 
 // ── Step 1 → 2 ──────────────────────────────────────────────────
 async function handleStep1Next() {
-  const required = [
-    ['companyName', 'IP / Company Name'], ['companyId', 'Company / IDP ID'],
-    ['companyPassword', 'Company Password'], ['batchId', 'Batch ID'],
-    ['batchStartDate', 'Batch Start Date'], ['batchEndDate', 'Batch End Date'],
-    ['batchStartTime', 'Batch Start Time'], ['batchEndTime', 'Batch End Time'],
-    ['attendeeName', 'Attendee Name'], ['attendeeStartDate', 'Attendee Start Date'],
-  ];
+  // Validation removed as per request
+  /*
   for (const [id, label] of required) {
     if (!document.getElementById(id).value.trim()) {
       document.getElementById(id).focus();
@@ -210,6 +205,7 @@ async function handleStep1Next() {
       return;
     }
   }
+  */
 
   try {
     await saveCompany(
@@ -501,13 +497,13 @@ async function generatePDF() {
       tableLineWidth: 0.4,
       styles: {
         font: 'times',
-        fontSize: 7.5,
+        fontSize: 22,
         textColor: [0, 0, 0],
         fillColor: [255, 255, 255],
         lineColor: [0, 0, 0],
         lineWidth: 0.3,
         minCellHeight: ROW_H,
-        cellPadding: { top: 1.2, bottom: 1.2, left: 2.5, right: 2.5 },
+        cellPadding: { top: 2, bottom: 2, left: 2.5, right: 2.5 },
         overflow: 'ellipsize',
         valign: 'middle',
       },
@@ -515,17 +511,17 @@ async function generatePDF() {
         fillColor: [0, 0, 0],
         textColor: [255, 255, 255],
         fontStyle: 'bold',
-        fontSize: 8,
+        fontSize: 24,
         halign: 'center',
         minCellHeight: TABLE_HEAD_H,
       },
       alternateRowStyles: { fillColor: [255, 255, 255] },
       columnStyles: {
-        0: { cellWidth: 11, halign: 'center' },
-        1: { cellWidth: 75, fontStyle: 'bold' },
-        2: { cellWidth: 35, halign: 'center', font: 'courier', fontSize: 7 },
-        3: { cellWidth: 18, halign: 'center' },
-        4: { cellWidth: 20, halign: 'center' },
+        0: { cellWidth: 15, halign: 'center' },
+        1: { cellWidth: 100, fontStyle: 'bold' },
+        2: { cellWidth: 50, halign: 'center', font: 'courier', fontSize: 20 },
+        3: { cellWidth: 20, halign: 'center' },
+        4: { cellWidth: 25, halign: 'center' },
         5: { cellWidth: 'auto' },
       },
       didDrawPage: ({ pageNumber }) => {
