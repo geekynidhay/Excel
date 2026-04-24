@@ -486,10 +486,10 @@ async function generatePDF() {
     // Round down slightly to ensure exactly 15 fit without premature page breaks
     const ROW_H = Math.floor((availableFirstPage / rowsPerPage) * 10) / 10 - 0.2;
 
-    const tableData = studentData.map(s => [s.sno, s.name, s.trimmedRefId, '', '', '']);
+    const tableData = studentData.map(s => [s.sno, s.name, s.trimmedRefId, '', '']);
 
     doc.autoTable({
-      head: [['S.No', 'Student Name', 'Attendance Ref. ID', 'Absent', 'Eye Number', 'Remark']],
+      head: [['Sr', 'Name', 'Att ID', 'ABS', 'Eye']],
       body: tableData,
       startY: tableStartY,
       margin: { top: PM, bottom: PM, left: PM, right: PM },
@@ -517,12 +517,11 @@ async function generatePDF() {
       },
       alternateRowStyles: { fillColor: [255, 255, 255] },
       columnStyles: {
-        0: { cellWidth: 10, halign: 'center' },
-        1: { cellWidth: 70, fontStyle: 'bold' },
-        2: { cellWidth: 35, halign: 'center', font: 'courier', fontSize: 12 },
+        0: { cellWidth: 12, halign: 'center', overflow: 'visible' },
+        1: { cellWidth: 90, fontStyle: 'bold' },
+        2: { cellWidth: 44, halign: 'center', font: 'courier', fontSize: 12 },
         3: { cellWidth: 20, halign: 'center' },
         4: { cellWidth: 20, halign: 'center' },
-        5: { cellWidth: 'auto' },
       },
       didDrawPage: ({ pageNumber }) => {
         const total = doc.internal.getNumberOfPages();
